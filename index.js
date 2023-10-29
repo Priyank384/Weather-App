@@ -6,6 +6,24 @@ const api = {
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress", setQuery);
 
+// Function to get the weather of the current location
+function getWeatherByLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      
+      fetch(`${api.base}weather?lat=${latitude}&lon=${longitude}&units=metric&APPID=${api.key}`)
+        .then((weather) => {
+          return weather.json();
+        })
+        .then(displayResults);
+    });
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+
 function setQuery(evt) {
   if (evt.keyCode == 13) {
     getResults(searchbox.value);
@@ -13,6 +31,7 @@ function setQuery(evt) {
 }
 
 function getResults(query) {
+  // Use the search query to fetch weather data
   fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
     .then((weather) => {
       return weather.json();
@@ -71,3 +90,6 @@ function dateBuilder(d) {
 
   return `${day} ${date} ${month} ${year}`;
 }
+
+// Call the function to get weather by location when the page loads
+getWeatherByLocation();
