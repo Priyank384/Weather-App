@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Priyank384/Weather-App.git'
+                git branch: 'main', url: 'https://github.com/Priyank384/Weather-App.git'
             }
         }
         stage('Build Docker Image') {
