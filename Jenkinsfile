@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        docker { image 'bitnami/kubectl:latest' }
+        label 'master'
     }
     environment {
         IMAGE_NAME = "my-weather-app:latest"
