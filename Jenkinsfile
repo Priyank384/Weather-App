@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'master' }
     environment {
-        IMAGE_NAME = "weather-app:latest"
+        IMAGE_NAME = "my-weather-app:latest"
     }
     stages {
         stage('Checkout') {
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh 'kubectl apply -f deployment.yaml'
                 sh 'kubectl apply -f service.yaml'
-                sh 'kubectl rollout status deployment/weather-app'
+                sh 'kubectl rollout status deployment/my-weather-app'
             }
         }
     }
