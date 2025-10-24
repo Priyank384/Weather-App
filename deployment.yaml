@@ -13,8 +13,8 @@ spec:
         app: weather-app
     spec:
       containers:
-      - name: weather-app
-        image: weather-app:latest
+      - name: my-weather-app
+        image: my-weather-app:latest
         imagePullPolicy: Never
         ports:
         - containerPort: 80
