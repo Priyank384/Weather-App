@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        label 'master'
+        label any
     }
     environment {
         IMAGE_NAME = "my-weather-app:latest"
