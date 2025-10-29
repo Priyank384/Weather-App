@@ -33,7 +33,7 @@ pipeline {
                 sh """
                     kubectl apply -f deployment.yaml
                     kubectl apply -f service.yaml
-                    kubectl rollout status deployment/my-weather-app
+                    kubectl rollout status deployment/weather-app
                 """
             }
         }
