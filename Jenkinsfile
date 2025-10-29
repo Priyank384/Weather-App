@@ -23,7 +23,7 @@ pipeline {
                 echo "Exporting and importing image to K3s..."
                 sh """
                     docker save -o my-weather-app.tar ${IMAGE_NAME}
-                    sudo k3s ctr images import my-weather-app.tar
+                    k3s ctr images import my-weather-app.tar
                 """
             }
         }
