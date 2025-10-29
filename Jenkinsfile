@@ -2,7 +2,7 @@ pipeline {
     agent any   
     environment {
         IMAGE_NAME = "my-weather-app:latest"
-        KUBECONFIG = "/var/lib/jenkins/k3s.yaml" 
+        KUBECONFIG = "/var/lib/jenkins/.kube/config" 
     }
 
     stages {
